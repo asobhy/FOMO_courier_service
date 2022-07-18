@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+
+<link rel="stylesheet" href='{% static "css/style_myorders.css" %}'>
+
+{% endblock 'head' %}
+{% block 'body' %}
+
+
+{% if orders %}
+
+<h2> Your Orders </h2>
+
+<div class="container">
+
+  <ul class="table">
+    <li class="table-header">
+      <div class="col col-1">Date</div>
+      <div class="col col-2">Order ID</div>
+      <div class="col col-3">Pick Up Address</div>
+      <div class="col col-4">Status</div>
+      <div class="col col-5">Payment</div>
+      <div class="col col-6">Actions</div>
+    </li>
+    {% for order in orders %}
+
+
+    {% if order.status == 'cancelled' %}
+    <li class="table-row" style="background-color:#fcd1d1;">
+      {% elif order.status == 'completed' %}
+    <li class="table-row" style="background-color:#c8eed9;">
+      {% else %}
+    <li class="table-row" style="background-color:white;">
+      {% endif %}
+
+
+      <div class="col col-1" data-label="date">{{order.order_time}} </div>
+      <div class="col col-2" data-label="order id">ORD000{{order.order_id}}</div>
+      <div class="col col-3" data-label="delivery address">
+        {{order.delivery_name}},({{order.delivery_phone}}),{{order.delivery_address}}</div>
+      <div class="col col-4" data-label="status">
+        {% if order.status == 'cancelled' %}
+        <p>cancelled on {{order.cancelled_time}}</p>
+        {% elif order.status == 'completed' %}
+        <p>Deliverd on {{order.completed_time}}</p>
+        {% elif order.status == 'picked' %}
+        <p>Picked from {{delivery_name}} on {{order.picked_time}}</p>
+        {% elif order.status == 'accepted' %}
+        <p>Accepted on {{order.accepted_time}}</p>
+        {% else %}
+        <p>Serching for agent nearby you </p>
+        {% endif %}
+
+
+      </div>
+      <div class="col col-5" data-label="Payment Status">{{order.bill}}</div>
+      <div class="col col-6 actionbtns" data-label=" Action">
+        {% if order.status == 'pending' %}
+        <form action="{% url 'cancelorder' order.order_id %}" method="post">{% csrf_token %}
+          <input type="submit" name="cancelorder" value="cancel" id="cancelbtn">
+        </form>
+        {% endif %}
+        <form action="{% url 'orderdetail' order.order_id %}" method="post">{% csrf_token %}
+          <input type="submit" name="view" value="view" id="viewbtn">
+        </form>
+
+        {% if order.status == 'completed'%}
+        <form action="{% url 'feedbackform' order.order_id %}" method="post">{% csrf_token %}
+          <input type="submit" name="feedback" value="feedback" id="viewbtn">
+        </form>
+        {% endif %}
+
+
+      </div>
+    </li>
+
+    {% endfor %}
+  </ul>
+
+</div>
+{% else %}
+<h2>You Have Nothing Here...</h2>
+<a href="{% url 'neworder' %}"><button id="btncourier">Book a Courier</button></a>
+{% endif %}
+
+
+{% endblock 'body' %}

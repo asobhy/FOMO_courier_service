@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% load static %} {% block 'head' %}
+<link rel="stylesheet" href='{% static "css/style_forms.css" %}' />
+<link
+  href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap"
+  rel="stylesheet"/>
+{% endblock 'head' %} {% block 'body' %}
+
+<div class="flex-container">
+  <div class="myform">
+    <h1>Create Account</h1>
+
+    <form method="POST">
+      {% csrf_token %} {% for f in form %} 
+          {{ f }} 
+          {% if f.errors %}
+          {% for error in f.errors %}
+      <p class="errorlist">{{error}}</p>
+      {% endfor %} {% endif %} {% endfor %}
+
+      <input type="submit" value="SignUp" id="submitbtn" />
+    </form>
+
+    <p class="message">
+      already an account ? <a href="{% url 'login' %}"> here </a>
+    </p>
+    {% if messages %}
+    {% for message in messages %}
+    <p class="{{message.tags}}">
+    {{ forloop.counter }} {{message}}
+    </p>
+    {% endfor %}  {% endif %}
+  </div>
+</div>
+
+<script src="" async defer></script>
+
+{% endblock 'body' %}

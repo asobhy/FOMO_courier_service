@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+<link rel="stylesheet" href='{% static "css/style_index.css" %}'>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">
+
+{% endblock 'head' %}
+
+{% block 'body' %}
+
+
+
+<table class="section1" style="background-image: url({% static 'img/header-promo.svg' %});">
+  <tr>
+    <td width="50%" style="padding-bottom:300px">
+      <h1>Fastest Courier Service in Delhi/NCR</h1>
+      <p style="color:black;font-size:20px"><b>Low-priced same day delivery service!</b>
+      <p>
+    </td>
+    <td>
+      <form action="{% url 'send_to_order' %}" method="GET" id="orderform">
+        {% csrf_token %}
+        <input type="text" placeholder="Pick up Address" name="pick_address" id="id_pick_address"><br>
+        <input type="text" placeholder="Delivery Address" name="delivery_address" id="id_delivery_address"><br>
+        <input type="submit" value="Book a Courier" id="submit_btn">
+        <p> Book a courier with urgent delivery at no extra cost </p>
+      </form>
+    </td>
+  </tr>
+
+</table>
+
+
+<div class="section2">
+  <div>
+    <h1>90 Minuts</h1>
+    <p>We can deliver ASAP or at a specified time documents, products, flowers, any product</p1>
+  </div>
+
+  <div>
+    <h1>&#x20b9; 40</h1>
+    <p>start from ₹ 30 for hyperlocal tariff in Delhi/NCR and ₹ 10 per km in zone 1</p>
+  </div>
+  <div>
+    <h1>Moto Delivery </h1>
+    <p>We delivery you fast with our moto vehical service</p>
+  </div>
+
+</div>
+
+
+
+
+<h1 id="section3"> Why to Choose Us ? </h1>
+
+<div class="section3">
+  <div> Walking couriers and riders are always available. We assign the nearest courier with the highest rating within 7
+    minutes. </div>
+  <div> The system assigns high-scored and closest courier. Probably we provide you with fastest delivery service ever.
+  </div>
+  <div>Special services are available such as buying from the store, and multi-point deliveries! </div>
+</div>
+
+<div class="section3">
+  <div> If you own a business you can opt for COD with us. Its cheap and effective. No reason to wait weeks for getting
+    your revenue back.</div>
+  <div>You can book a courier delivery without creating accounts or signing contracts. The phone number for the sender
+    and receiver is more than enough! </div>
+  <div> We send courier's phone number to the contact person via SMS at each delivery point.</div>
+</div>
+
+
+<div class="section4">
+  <div>
+    <h1>Courier First is revolutionising urgent deliveries</h1>
+    <p>
+      We have all been in a situation where we have used a courier service that wasn't reliable,
+      and ended up disappointed, right? Well, today is your lucky day because at Courier First our goal
+      is to make our courier service in Delhi as reliable as possible.
+
+      We are a professional courier company, and we make the best partner for restaurants and
+      online stores. Courier First deals mostly with the urgent delivery of heavy goods (up to 200 kgs),
+      online shopping, gifts, and food.
+
+      One of the main benefits of using our express courier service in Delhi is that we don't
+      charge you extra for urgent deliveries. Courier First has made a great impact on Delhi by
+      employing many freelancers in the city.
+
+      You will absolutely love our employment opportunities if you are the type of person who
+      loves cycling because we do most of our deliveries by cycling or walking. Our unique style
+      of deliveries has enabled us to significantly reduce traffic in the city and also help
+      people make money and keep fit.
+
+      How does Courier First work? Our company has a functional mobile app and website where our
+      customers book our courier service. We have made our booking process seamless so it
+      should only take you a minute. We have courier riders and walkers available anytime around
+      the clock. Therefore, expect your delivery within a maximum of 90 minutes.
+
+      We always send our highest-rated courier that's close to you, ensuring a five-star courier
+      service in Delhi which you can't just get anywhere else.
+
+      Courier First doesn't require you to sign a contract or take you through unnecessary processes to
+      make your delivery, all we need are the telephone numbers of the receiver and the sender.
+      We notify the contact person by texting them the phone number of the courier at each delivery
+      point.
+
+      Our company's primary goal is to provide the best services to the people of Delhi and to
+      ensure that we are the best express courier service.
+    </p>
+  </div>
+</div>
+
+
+
+
+  
+
+
+  {% endblock 'body' %}

@@ -1,0 +1,139 @@
+.section1 {
+  height: 600px;
+  width: 100%;
+  background-color: rgba(168, 217, 247, 0.082);
+  background-position: -330px 100px;
+  background-repeat: no-repeat;
+}
+
+#orderform {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px lightgray;
+  background-color: white;
+  padding: 50px 40px 30px 40px;
+  margin-right: 10%;
+}
+
+#orderform input {
+  padding-left: 15px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+#submit_btn {
+  margin-bottom: 0px;
+  background-color: #5cb85c;
+  color: white;
+  border: 1px solid #5cb85c;
+  font-size: 15px;
+}
+
+.section1 p {
+  font-family: sans-serif;
+  color: gray;
+  text-align: center;
+}
+
+.section1 h1 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 50px;
+  text-align: center;
+  color: #af0069;
+}
+
+/* ------------------section 2 ---------------------------*/
+
+.section2 {
+  margin-top: 70px;
+  margin-left: 10vw;
+  height: auto;
+  width: 80vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.section2 div {
+  padding: 30px 40px;
+  width: 20vw;
+  height: auto;
+  border: 1px solid black;
+  text-align: center;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px lightgray;
+}
+
+.section2 div h1 {
+  font-family: sans-serif;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.section2 div p {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: sans-serif;
+  color: gray;
+  text-align: left;
+}
+
+/*-------------------- section 3------------------------ */
+
+.section3 {
+  width: 60vw;
+  margin-left: 20vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.section3 div {
+  width: 25%;
+  margin: 30px 30px 5px 30px;
+  padding: 30px;
+  font-size: 20px;
+  font-family: sans-serif;
+  color: gray;
+  text-align: left;
+  border-radius: 5px;
+
+  box-shadow: 0px 2px 4px lightgray;
+}
+
+#section3 {
+  text-align: center;
+  margin-top: 70px;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 40px;
+}
+
+/*-------------------- section 4------------------------ */
+
+.section4 {
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.section4 div {
+  width: 60vw;
+}
+
+.section4 h1 {
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 40px;
+}
+
+.section4 p {
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: justify;
+  padding: 30px 70px;
+  color: gray;
+}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %} {% load static %} {% block 'head' %}<link
+  rel="stylesheet"
+  href='{% static "css/style_view_order_details.css" %}'
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap"
+  rel="stylesheet"
+/>
+{% endblock 'head' %} {% block 'body' %}
+
+<table class="orderview" cellspacing="10px">
+  <tr>
+    <td>Order ID : ORD000{{order.order_id|default:'NA'}}</td>
+    <td>
+      Date of order : {{order.order_time|date:"SHORT_DATE_FORMAT"}}
+      <br />{{order.order_time|date:"TIME_FORMAT"}}
+    </td>
+    <td>Status : {{order.status|default:'NA'}}</td>
+  </tr>
+
+  <tr>
+    <td>Distance : {{order.distance|default:'NA'}}km</td>
+    <td>Weight : {{order.weight|default:'NA'}}kg</td>
+    
+    {% if order.pamyment_time %}
+    <td>Paid : {{order.bill|default:'NA'}} <br> {{order.pamyment_time}}</td>  
+    {% else %}
+    <td>To Pay : {{order.bill|default:'NA'}}</td>
+    {% endif %}
+  
+  </tr>
+
+  <tr>
+    <th colspan="3">Pick Up Address</th>
+  </tr>
+  <tr>
+    <td>
+      Name <br />
+      Contact <br />
+      Address Line 1 <br />
+      Address Line 2 <br />
+      Pincode <br />
+    </td>
+    <td colspan="2">
+      {{order.pick_name|default:'NA'}}<br />
+      {{order.pick_phone|default:'NA'}}<br />
+      {{order.pick_note|default:'NA'}}<br />
+      {{order.pick_address|default:'NA'}}<br />
+      Delhi - {{order.pick_pincode|default:'NA'}}<br />
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="3">Delivery Address</th>
+  </tr>
+  <tr>
+    <td>
+      Name <br />
+      Contact <br />
+      Address Line 1 <br />
+      Address Line 2 <br />
+      Pincode <br />
+    </td>
+    <td colspan="2">
+      {{order.delivery_name|default:'NA'}}<br />
+      {{order.delivery_phone|default:'NA'}}<br />
+      {{order.delivery_note|default:'NA'}}<br />
+      {{order.delivery_address|default:'NA'}}<br />
+      Delhi - {{order.pick_pincode|default:'NA'}}<br />
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="3">Agent details</th>
+  </tr>
+  <tr>
+    <td>
+      Name<br />
+      Contact <br />
+    </td>
+
+    <td colspan="2">
+      {{agent.first_name}} {{agent.last_name|default:'NA'}}<br />
+      {{agent.phone|default:'NA'}}
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="3">Order Status</th>
+  </tr>
+  <tr>
+    <td>
+      cancelled on<br />
+      order on<br />
+      accepted on <br />
+      picked on<br />
+      Deivered on <br />
+    </td>
+    <td colspan="2">
+      {{order.cancelled_time|default:'NA'}}<br />
+      {{order.order_time|default:'NA'}}<br />
+      {{order.accepted_time|default:'NA'}}<br />
+      {{order.picked_time|default:'NA'}}<br />
+      {{order.completed_time|default:'NA'}}<br />
+    </td>
+  </tr>
+</table>
+
+{% endblock 'body' %}

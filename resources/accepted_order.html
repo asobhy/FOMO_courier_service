@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+
+      <link rel="stylesheet" href='{% static "css/style_available_order.css" %}'>
+
+{% endblock 'head' %}
+{% block 'body' %}
+
+
+{% if orders %}
+    
+
+<h2> Your Accepted Orders </h2>  
+<div class="container">
+    
+    <ul class="table">
+      <li class="table-header">
+        <div class="col col-1">Date</div>
+        <div class="col col-2">Pickup address</div>
+        <div class="col col-3">Drop Address </div>
+        <div class="col col-4">Distance</div>
+        <div class="col col-5">Weight</div>
+        <div class="col col-6 actionbtns" >Actions</div>
+      </li>
+    {% for order in orders %}
+      
+   
+         {% if order.status == 'cancelld' %}
+            <li class="table-row" style="background-color:#fcd1d1;">
+         {% elif order.status == 'completed' %}
+            <li class="table-row" style="background-color:#c8eed9;">
+         {% else  %}
+         <li class="table-row" style="background-color:white;">
+         {% endif %}
+        
+
+        <div class="col col-1" data-label="Date">{{order.order_time}} </div>
+        <div class="col col-2" data-label="Pickup Address">  {{order.pick_phone}} {{order.pick_name}},{{order.pick_note}},{{order.pick_address}}, Delhi {{order.pick_pincode}}</div>
+        <div  class="col col-3" data-label="Delivery Address"> {{order.delivery_phone}} {{order.delivery_name}},{{order.delivery_note}},{{order.delivery_address}}, Delhi {{order.delivery_pincode}}</div>
+        <div class="col col-4" data-label="Distance"> {{order.distance}} km </div>
+        <div class="col col-5" data-label="weight">{{order.weight}} kg</div>
+        <div class="col col-6 actionbtns" data-label=" Action"> 
+              
+              {% if order.status == 'accepted' %}
+              <form action="{% url 'orderpicked' order.order_id %}" method="post">    {% csrf_token %}
+                <input type="submit" value="Picked" id="submitbtn">   
+              </form>
+              {% elif order.status == 'picked' %}
+              <form action="{% url 'orderdelivered' order.order_id %}" method="post">    {% csrf_token %}
+                <input type="submit" value="Delivered" id="submitbtn">   
+              </form>
+              {% endif %}
+              <form action="{% url 'orderdetail' order.order_id %}" method="post">{% csrf_token %}
+                <input type="submit" name="view" value="view"  id="viewbtn"> 
+        </div>
+    </li>
+    
+    {% endfor %}
+    </ul>
+  </div>
+
+{% else %}
+
+ <h2> Nothing  here </h2>
+
+  {% endif %}
+
+
+
+{% endblock 'body' %}
+    

@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% load static %} {% block 'head' %}
+<link rel="stylesheet" href='{% static "css/style_order_form.css" %}' />
+<link
+  href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap"
+  rel="stylesheet"
+/>
+{% endblock 'head' %} {% block 'body' %}
+
+<div class="flex-container">
+  <!-- error message -->
+
+  {% if messages %}
+  {% for message in messages %}
+  <p class="{{message.tags}}">
+  {{ forloop.counter }} {{message}}
+  </p>
+  {% endfor %}  {% endif %}
+
+  <!-- end errormessage -->
+
+  <form method="post" action="{% url 'neworder' %}">
+    {% csrf_token %}
+    <div class="form1">
+      {% for f in form %} {% if f.name == 'pick_phone' %}
+      <div class="myblock1">
+        {% endif %} {% if f.name == 'delivery_name' %}
+        <div class="myblock2">
+          {% endif %} {% if f.name == 'delivery_address' %}
+        </div>
+        <div class="form2">
+          {% endif %}
+          <div id="id{{forloop.counter}}">
+            <label for="{{f.name}}">{{f.label}}</label><br />
+            {{f}} {% if f.errors %} {% for error in f.errors %}
+            <p class="errorlist">{{error}}</p>
+            {% endfor %} {% endif %}
+          </div>
+          {% if f.name == 'weight' %}
+        </div>
+        {% endif %} {% if f.name == 'delivery_pincode' %}
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+
+    <input type="submit" value="Next" id="next_btn" />
+  </form>
+</div>
+
+{% endblock 'body' %} {% block script %}
+<script>
+  $(document).ready(function () {
+    $("#id_pick_pincode , #id_delivery_pincode , #id_weight ").change(
+      function () {
+        $.ajax({
+          url: "ajaxbill",
+          type: "get",
+          data: {
+            so: $("#id_pick_pincode").val(),
+            de: $("#id_delivery_pincode").val(),
+            weight: $("#id_weight").val(),
+          },
+
+          success: function (response) {
+            $("#id_bill").val(response.newval);
+          },
+        });
+      }
+    );
+  });
+</script>
+{% endblock script %}

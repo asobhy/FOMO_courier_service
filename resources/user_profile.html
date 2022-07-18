@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% load static %} {% block 'head' %}
+<link rel="stylesheet" href='{% static "css/style_user_profile.css" %}' />
+
+{% endblock 'head' %} {% block 'body' %}
+
+<div class="profile">
+
+<div class="profile-block" >
+   <div id="pic" >
+      <img src='{% static "img/userprofile.png" %}' width='100%' height='100%'>
+   </div>
+   <div id="udetail"> 
+      <h1>{{user.email}}</h1>
+      <h2>{{user.first_name}} {{user.last_name}}</h2>
+   </div>
+</div>
+
+<div class="container">
+  <div class="user-details">
+    <input type="text" value="{{user.first_name}}" disabled />
+    <input type="text" value="{{user.last_name}}" disabled />
+  </div>
+  <div class="user-details">
+    <input type="text" value="{{user.email}}" disabled />
+    <input type="text" value="{{user.phone}}" disabled />
+  </div>
+  <div class="user-details" id="buttons3">
+    <a style="flex: 3" id="btn1" href="{% url 'changeuserdetails' %}">
+      Change Details
+    </a>
+    <a style="flex: 3" id="btn2" href="{% url 'changepassword' %}">
+      Change Password
+    </a>
+
+    <a type="submit" style="flex: 1" id="btn3" href="{% url 'logout' %}">
+      logout
+    </a>
+  </div>
+</div>
+</div>
+
+
+{% if messages %}
+{% for message in messages %}
+<p class="{{message.tags}}">
+  {{ forloop.counter }} {{message}}
+ </p>
+ {% endfor %}  {% endif %}
+
+{% endblock 'body' %}

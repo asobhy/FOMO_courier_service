@@ -1,0 +1,20 @@
+table {
+  width: 50%;
+  margin-left: 25%;
+  border: 1px solid grey;
+  height: 100%;
+  margin-top: 60px;
+}
+
+td {
+  height: 40px;
+  font-size: 17px;
+}
+
+th {
+  font-family: sans-serif;
+  font-size: 20px;
+  border-bottom: 1px solid gray;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}

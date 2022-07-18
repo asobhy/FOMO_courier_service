@@ -1,0 +1,74 @@
+.flex-container {
+  margin-top: 60px;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.myform {
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 30vw;
+  padding: 30px 20px 40px 20px;
+}
+
+.myform h1 {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.myform input,
+#cancelbtn {
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  text-align: center;
+  color: black;
+  font-size: 17px;
+}
+.myform input:focus {
+  outline: 0px;
+}
+
+.success {
+  color: green;
+  font-size: 14px;
+  font-family: sans-serif;
+  margin: 5px auto auto 10px;
+}
+
+.error , .errorlist{
+  color: red;
+  font-size: 14px;
+  font-family: sans-serif;
+  margin: 5px auto auto 10px;
+}
+
+#submitbtn {
+  background-color: #5cb85c;
+  color: white;
+}
+
+#cancelbtn {
+  margin-top: 20px;
+  background: #e9896a;
+  color: white;
+
+  border: 1px solid #e9896a;
+}
+
+.message {
+  font-size: 15px;
+  font-family: sans-serif;
+  color: gray;
+  margin-top: 20px;
+}
+
+.message a {
+  color: green;
+}
+

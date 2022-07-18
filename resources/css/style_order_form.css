@@ -1,0 +1,103 @@
+body {
+  background-color: whitesmoke;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.form1,
+.form2 {
+  margin-top: 40px;
+  background-color: white;
+  border: 1px solid gray;
+  width: 40vw;
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0px 2px 4px lightgray;
+  border: 1px solid lightgray;
+}
+
+.form1 input,
+.form2 input,
+select {
+  height: 40px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid navy;
+  color: black;
+  font-size: 17px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.form1 label,
+.form2 label {
+  font-family: sans-serif;
+}
+
+input:focus {
+  outline: 0px;
+}
+
+.errorlist {
+  color: tomato;
+  font-size: 14px;
+  font-family: sans-serif;
+  margin: 5px auto auto 10px;
+}
+
+.message {
+  font-size: 15px;
+  font-family: sans-serif;
+  color: gray;
+  margin-top: 20px;
+}
+
+.message a {
+  color: green;
+}
+
+#id2 {
+  width: 35%;
+}
+#id3 {
+  width: 25%;
+}
+#id4 {
+  width: 30%;
+}
+#id4 select {
+  color: #5cb85c;
+}
+
+#id7 {
+  width: 40%;
+}
+#id8 {
+  width: 30%;
+}
+#id9 {
+  width: 20%;
+}
+
+.myblock1,
+.myblock2 {
+  display: flex;
+  direction: column;
+  justify-content: space-between;
+}
+
+#next_btn {
+  margin-top: 30px;
+  width: 40%;
+  text-align: center;
+  height: 40px;
+  background-color: #5cb85c;
+  color: white;
+  border: 1px solid #5cb85c;
+  font-size: 17px;
+  border-radius: 30px;
+  float: right;
+}

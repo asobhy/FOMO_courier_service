@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load static %} {% block 'head' %}
+
+<link rel="stylesheet" href='{% static "css/style_available_order.css" %}' />
+
+{% endblock 'head' %} {% block 'body' %} {% if orders %}
+
+<h2>Availabe Orders</h2>
+
+<div class="container">
+  <ul class="table">
+    <li class="table-header">
+      <div class="col col-1">Date</div>
+      <div class="col col-2">Pickup address</div>
+      <div class="col col-3">Drop Address</div>
+      <div class="col col-4">Distance</div>
+      <div class="col col-5">Weight</div>
+      <div class="col col-6 actionbtns">Actions</div>
+    </li>
+    {% for order in orders %}
+    <li class="table-row" style="background-color: white">
+      <div class="col col-1" data-label="Date">{{order.order_time}}</div>
+      <div class="col col-2" data-label="Pickup Address">
+        {{order.pick_name}},{{order.pick_note}},{{order.pick_address}},{{pick_pincode}}
+      </div>
+      <div class="col col-3" data-label="Delivery Address">
+        {{order.delivery_name}},{{order.delivery_note}},{{order.delivery_address}},{{delivery_pincode}}
+      </div>
+      <div class="col col-4" data-label="Distance">{{order.distance}} km</div>
+      <div class="col col-5" data-label="weight">{{order.weight}} kg</div>
+      <div class="col col-6 actionbtns" data-label=" Action">
+        <form action="{% url 'acceptorder' order.order_id %}" method="post">
+          {% csrf_token %} <input type="submit" value="accept" id="submitbtn" />
+        </form>
+      </div>
+    </li>
+
+    {% endfor %}
+  </ul>
+</div>
+
+{% else %}
+
+<h2>No Order is Availabe</h2>
+
+{% endif %} {% endblock 'body' %}
