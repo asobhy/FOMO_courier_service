@@ -1,6 +1,6 @@
 # Courier-First
 Courier First Delivery System is Web app , Developed using Python Django. 
-CFS is develop by raman9514@gmail.com
+CFS is develop by alaadin.sobhy@gmail.com
 
 steps to make it working
 
@@ -19,7 +19,7 @@ Delivery Boy 	: deliveryboy@cfs.com
 password 	:  #elloW0rld
 phone no	: 9811234599
 
-User	  : raman@cfs.com	
+User	  : alaadin@cfs.com	
 password  : #elloW0rld
 phone no  : 9810187019
 
