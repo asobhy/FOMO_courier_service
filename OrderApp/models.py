@@ -72,3 +72,4 @@ class FeedbackDB(models.Model):
     feedback = models.CharField(max_length=250)
     datetime = models.DateTimeField(auto_now=False)
     lastmodified = models.DateTimeField(auto_now=True)
+    
